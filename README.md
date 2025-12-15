@@ -151,5 +151,3 @@ Déploiement cloud (CI/CD)
 👩‍💻 Contexte
 Projet réalisé dans le cadre du BPCE Project Lab
 Microservice expérimental orienté sécurité des prompts et données sensibles.
-
-Copier le code
