@@ -1,0 +1,39 @@
+{
+  "risk_engine": {
+    "weights": {
+      "BANK_IBAN": 3.0,
+      "BANK_CARD": 3.0,
+      "EMAIL": 1.5,
+      "PHONE": 1.5,
+      "PERSON": 3.0
+    },
+    "default_weight": 1.0,
+    "thresholds": {
+      "MASK": 0.3,
+      "BLOCK": 0.7
+    }
+  },
+  "rules_engine": {
+    "patterns": [
+      {
+        "type": "BANK_IBAN",
+        "regex": "\\bFR\\d{2}(?:[ ]?\\d{4}){5}\\d{3}\\b"
+      },
+      {
+        "type": "BANK_CARD",
+        "regex": "\\b(?:\\d[ ]?){13,16}\\b"
+      },
+      {
+        "type": "EMAIL",
+        "regex": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+      },
+      {
+        "type": "PHONE",
+        "regex": "\\b0[1-9](?:[ .-]?\\d{2}){4}\\b"
+      }
+    ]
+  },
+  "ml_engine": {
+    "default_confidence": 0.85
+  }
+}

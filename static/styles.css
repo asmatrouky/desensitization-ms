@@ -1,0 +1,241 @@
+/* ========= TYPO / GLOBAL ========= */
+body {
+  font-family: system-ui, sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px;
+}
+
+.separator {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ========= HEADER ========= */
+header {
+  background: #111827;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.3rem;
+}
+
+header p {
+  margin-top: 0.3rem;
+  color: #9ca3af;
+}
+
+/* ========= MAIN CONTAINER ========= */
+main {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+/* ========= TEXTAREA ========= */
+textarea {
+  width: 100%;
+  height: 140px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  resize: vertical;
+  font-size: 14px;
+}
+
+/* ========= BUTTON ========= */
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  border: none;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+/* ========= GRID LAYOUT ========= */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* ========= CARD ========= */
+.card {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ========= PRE / CODE BLOCK ========= */
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #ffffff;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* ========= TABLE ========= */
+table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.4rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+th {
+  background: #f3f4f6;
+}
+
+/* ========= BADGES ========= */
+.badge {
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-allow {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-mask {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.badge-block {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.muted {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Style du bouton de réglage dans le header */
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+.settings-btn:hover {
+    background-color: #ddd;
+}
+.settings-btn i {
+    margin-right: 5px;
+}
+
+/* Styles de la fenêtre modale (Pop-up) */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste en place même au défilement */
+    z-index: 1000; /* Se superpose à tout */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); /* Arrière-plan sombre */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centré verticalement et horizontalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles pour le tableau de configuration */
+.weights-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.weights-table th, .weights-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+.weights-table th {
+    background-color: #f2f2f2;
+    color: #004A99;
+}
+.weights-table input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+.status-message {
+    margin: 0;
+    font-weight: 500;
+}
+
+.llm-guard-card {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-left: 4px solid #7c3aed; /* violet */
+  background: #f5f3ff;
+  font-size: 0.9rem;
+}
+
+.llm-guard-card h4 {
+  margin-bottom: 0.5rem;
+  color: #5b21b6;
+}

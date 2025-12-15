@@ -1,0 +1,17 @@
+[
+  {
+    "id": "test1",
+    "text": "Bonjour, je m'appelle Jean Dupont et mon email est jean.dupont@example.com.",
+    "expected_entities": ["PERSON", "EMAIL"]
+  },
+  {
+    "id": "test2",
+    "text": "Mon IBAN est FR76 3000 6000 0112 3456 7890 123",
+    "expected_entities": ["BANK_IBAN"]
+  },
+  {
+    "id": "test3",
+    "text": "J'habite à Paris et je travaille chez BPCE.",
+    "expected_entities": ["LOCATION", "ORGANIZATION"]
+  }
+]

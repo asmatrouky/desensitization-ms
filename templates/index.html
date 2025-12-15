@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>BPCE – Microservice de désensibilisation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="/static/styles.css" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <h1>BPCE – Microservice de désensibilisation</h1>
+  
+  <button class="btn settings-btn" id="openSettingsBtn" title="Modifier la pondération des risques">
+    <i class="fas fa-cog"></i> Réglages
+  </button>
+</header>
+
+<main>
+  <h2>Tester un texte unique</h2>
+
+  <textarea id="inputText" placeholder="Colle ici un texte contenant IBAN, PERSON, EMAIL..."></textarea>
+  <button class="btn" id="analyzeBtn">Analyser / désensibiliser</button>
+
+  <div class="row">
+    <div class="card">
+      <h3>Texte désensibilisé</h3>
+      <pre id="sanitizedText">— Aucun résultat pour le moment —</pre>
+    </div>
+
+    <div class="card">
+      <h3>Résultat analyse</h3>
+      <p id="decisionBadge"></p>
+      <p id="riskScore">Score : —</p>
+      <div id="entitiesContainer"><p>Aucune entité détectée pour le moment</p></div>
+      <div id="llmGuardContainer" class="llm-guard-card">
+        <h4>Analyse LLM Guard</h4>
+        <p id="llmGuardDecision">Décision : —</p>
+        <p id="llmGuardScore">Score : —</p>
+        <ul id="llmGuardFlags"></ul>
+      </div>
+      <p id="metadataInfo" class="muted"></p>
+    </div>
+  </div>
+
+  <hr class="separator">
+
+  <h2>Tester un fichier (PDF, DOCX, image)</h2>
+  <p class="muted">
+    Choisis un fichier contenant des données sensibles (relevé PDF, contrat Word, photo d’ordonnance, etc.).
+  </p>
+
+  <input type="file" id="fileInput" accept=".pdf,.doc,.docx,image/*" />
+  <button class="btn" id="analyzeFileBtn">Analyser le fichier</button>
+
+  <p id="fileMetadata" class="muted"></p>
+
+  <hr class="separator">
+
+  <h2>Tester un jeu de données (JSON)</h2>
+  <p class="muted">
+    Fichier JSON attendu : tableau d’objets <code>{ id, text, expected_entities[] }</code>.
+  </p>
+
+  <input type="file" id="datasetFile" accept=".json">
+  <button class="btn" id="runDatasetBtn">Lancer les tests</button>
+
+  <div class="card" id="datasetResults" style="margin-top:1rem; display:none;">
+    <h3>Résultats du dataset</h3>
+    <p id="datasetSummary">Aucun test lancé.</p>
+    <div id="datasetTableContainer"></div>
+  </div>
+</main>
+
+<div id="settingsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3><i class="fas fa-balance-scale"></i> Ajuster la Pondération des Risques</h3>
+    <p class="muted">
+      Modifiez le poids (valeur flottante) de chaque entité pour influencer le score de risque.
+    </p>
+
+    <div id="weightsTableContainer">
+      </div>
+    
+    <div class="modal-footer">
+        <p id="weightsStatus" class="muted status-message"></p>
+        <button class="btn btn-primary" id="submitWeightsBtn">Soumettre et Appliquer</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
